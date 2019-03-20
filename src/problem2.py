@@ -3,8 +3,8 @@ Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and DONE.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
 def test_factor_sum():
     """ Tests the   factor_sum   function. """
     ###########################################################################
-    #  TODO: 2. Implement this TEST function, as follows:
+    #  DONE: 2. Implement this TEST function, as follows:
     #
     #    1. Read the  doc-string of the   factor_sum   function defined below.
     #
@@ -45,6 +45,45 @@ def test_factor_sum():
     # WRITE YOUR TESTS BELOW HERE:
     ###########################################################################
 
+    # Test 1:
+    expected = 11.0
+    actual = factor_sum(28)
+    print()
+    print('Test 1')
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 2:
+    expected = 4.0
+    actual = factor_sum(25)
+    print()
+    print('Test 2')
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 3:
+    expected = 12.0
+    actual = factor_sum(50)
+    print()
+    print('Test 3')
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 4:
+    expected = 9.0
+    actual = factor_sum(10)
+    print()
+    print('Test 4')
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 5:
+    expected = 3.0
+    actual = factor_sum(11)
+    print()
+    print('Test 5')
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 def factor_sum(n):
     """
@@ -74,7 +113,26 @@ def factor_sum(n):
     #  This function is PURPOSELY implemented INCORRECTLY (it just returns 0).
     #  DO NOT IMPLEMENT  factor_sum.  Just leave it as it is (returning 0).
     ###########################################################################
-    return 0
+    # return 0
     ###########################################################################
     # DO NOT modify the above line of code!
     ###########################################################################
+
+    number = 0
+    for k in range(n):
+        if (n%(k+1)) == 0:
+            number = number + n/(k+1)
+
+    if number < 0:
+        number = -number
+
+    digit_sum = 0
+    while True:
+        if number == 0:
+            break
+        digit_sum = digit_sum + (number % 10)
+        number = number // 10
+
+    return digit_sum
+
+main()

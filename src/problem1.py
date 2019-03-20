@@ -3,13 +3,13 @@ Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Zach Witonsky.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 # -----------------------------------------------------------------------------
-# TODO: 2. Right-click on the  src  folder and
+# DONE: 2. Right-click on the  src  folder and
 #              Mark Directory as ... Sources Root,
 #          if you have not already done so.
 # -----------------------------------------------------------------------------
@@ -118,9 +118,33 @@ def problem1(circle, rectangle, color, length, window):
       :type window:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # DONE: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+
+    line1 = rg.Line(circle.center, rectangle.get_center())
+    line1.color = color
+    line1.thickness = circle.outline_thickness
+
+
+    line2 = rg.Line(line1.get_midpoint(),rg.Point(line1.get_midpoint().x,line1.get_midpoint().y + length/2))
+    line2.color = circle.fill_color
+    line2.thickness = circle.outline_thickness + rectangle.outline_thickness
+
+    line3 = rg.Line(line1.get_midpoint(),rg.Point(line1.get_midpoint().x,line1.get_midpoint().y - length/2))
+    line3.color = circle.fill_color
+    line3.thickness = circle.outline_thickness + rectangle.outline_thickness
+
+
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    line1.attach_to(window)
+    line2.attach_to(window)
+    line3.attach_to(window)
+
+    window.render()
+
+
 
 
 # -----------------------------------------------------------------------------

@@ -3,8 +3,8 @@ Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Zach Witonsky.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import testing_helper
 import time
@@ -13,11 +13,11 @@ import time
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem3a()
-    run_test_problem3b()
+    # run_test_problem3b()
 
 
 ###############################################################################
-# TODO: 2.  READ the doc-string for the  sum_of_digits  and   is_prime
+# DONE: 2.  READ the doc-string for the  sum_of_digits  and   is_prime
 # functions defined below.  They are the same as what you have seen before.
 # After you UNDERSTAND the doc-string (JUST the doc-string, NOT the code),
 # ASKING QUESTIONS AS NEEDED, change the above _TODO_ to DONE.
@@ -190,7 +190,7 @@ def problem3a(a, b):
       -- problem3a(8, 2) = 11 + 23 + 29 + 41 + 43 + 47 + 61  (which is 255)
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -199,92 +199,103 @@ def problem3a(a, b):
     #    **  use (call) the appropriate function(s) that are DEFINED ABOVE.
     ###########################################################################
 
+    count = 0
+    for k in range(a**b-1):
+        if k >= a:
+            if is_prime(k) == True:
+                num1 = (k)
 
-def run_test_problem3b():
-    """ Tests the   problem3b   function. """
-    print()
-    print('--------------------------------------------------')
-    print('Testing the   problem3b  function:')
-    print('--------------------------------------------------')
+                if is_prime(sum_of_digits(num1)) == True:
+                    count = count + (k)
 
-    format_string = '    problem3b( {}, {} )'
-    test_results = [0, 0]  # Number of tests passed, failed.
+    return count
 
-    # Test 1:
-    expected = True
-    print_expected_result_of_test([2, 22], expected, test_results,
-                                  format_string)
-    actual = problem3b(2, 22)
-    print_actual_result_of_test(expected, actual, test_results)
-
-    # Test 2:
-    expected = True
-    print_expected_result_of_test([2, 23], expected, test_results,
-                                  format_string)
-    actual = problem3b(2, 23)
-    print_actual_result_of_test(expected, actual, test_results)
-
-    # Test 3:
-    expected = False
-    print_expected_result_of_test([2, 24], expected, test_results,
-                                  format_string)
-    actual = problem3b(2, 24)
-    print_actual_result_of_test(expected, actual, test_results)
-
-    # Test 4:
-    expected = True
-    print_expected_result_of_test([7, 205383], expected, test_results,
-                                  format_string)
-    actual = problem3b(7, 205383)
-    print_actual_result_of_test(expected, actual, test_results)
-
-    # Test 5:
-    expected = True
-    print_expected_result_of_test([7, 205384], expected, test_results,
-                                  format_string)
-    actual = problem3b(7, 205384)
-    print_actual_result_of_test(expected, actual, test_results)
-
-    # Test 6:
-    expected = False
-    print_expected_result_of_test([7, 205385], expected, test_results,
-                                  format_string)
-    actual = problem3b(7, 205385)
-    print_actual_result_of_test(expected, actual, test_results)
-
-    # SUMMARY of test results:
-    print_summary_of_test_results(test_results)
-
-
-def problem3b(m, x):
-    """
-    What comes in:  A positive integer m >= 2, and an integer x.
-    What goes out:
-      -- Returns True if the number of doubly prime integers from m**2 to m**4,
-         not counting m**4, is greater than or equal to x.
-          eturns False otherwise.
-    Side effects:   None.
-    Examples:
-      -- problem3b(6, 4) returns
-           1/4  +  2/(5**2)  +  3/(6**3)  +  4/(7**4)  +  5/(8**5)  + 6/(9**6),
-           which is approximately 0.3457187393495064.
-      -- problem3b(3, 1) returns
-           1/1  +  2/(2 ** 2)  +  3/(3 ** 3), which is approximately 0.6111111.
-      -- problem3b(2, 35) returns
-           1/35  +  2/(36**2), which is approximately 0.03011463844797178.
-      -- problem3b(4, 0.1) returns
-           1/(0.1)  +  2/((1.1)**2)  +  3/((2.1)**3)  +  4/(3.1)**4)),
-           which is approximately 12.020144157845959.
-     """
-    # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
-    #          Tests have been written for you (above).
-    ###########################################################################
-    ###########################################################################
-    # IMPORTANT:
-    #    **  For full credit you must appropriately
-    #    **  use (call) the appropriate function(s) that are DEFINED ABOVE.
-    ###########################################################################
+# I was told by Professor to ignore 3b, which I condensed
+# def run_test_problem3b():
+#     """ Tests the   problem3b   function. """
+#     print()
+#     print('--------------------------------------------------')
+#     print('Testing the   problem3b  function:')
+#     print('--------------------------------------------------')
+#
+#     format_string = '    problem3b( {}, {} )'
+#     test_results = [0, 0]  # Number of tests passed, failed.
+#
+#     # Test 1:
+#     expected = True
+#     print_expected_result_of_test([2, 22], expected, test_results,
+#                                   format_string)
+#     actual = problem3b(2, 22)
+#     print_actual_result_of_test(expected, actual, test_results)
+#
+#     # Test 2:
+#     expected = True
+#     print_expected_result_of_test([2, 23], expected, test_results,
+#                                   format_string)
+#     actual = problem3b(2, 23)
+#     print_actual_result_of_test(expected, actual, test_results)
+#
+#     # Test 3:
+#     expected = False
+#     print_expected_result_of_test([2, 24], expected, test_results,
+#                                   format_string)
+#     actual = problem3b(2, 24)
+#     print_actual_result_of_test(expected, actual, test_results)
+#
+#     # Test 4:
+#     expected = True
+#     print_expected_result_of_test([7, 205383], expected, test_results,
+#                                   format_string)
+#     actual = problem3b(7, 205383)
+#     print_actual_result_of_test(expected, actual, test_results)
+#
+#     # Test 5:
+#     expected = True
+#     print_expected_result_of_test([7, 205384], expected, test_results,
+#                                   format_string)
+#     actual = problem3b(7, 205384)
+#     print_actual_result_of_test(expected, actual, test_results)
+#
+#     # Test 6:
+#     expected = False
+#     print_expected_result_of_test([7, 205385], expected, test_results,
+#                                   format_string)
+#     actual = problem3b(7, 205385)
+#     print_actual_result_of_test(expected, actual, test_results)
+#
+#     # SUMMARY of test results:
+#     print_summary_of_test_results(test_results)
+#
+#
+# def problem3b(m, x):
+#     """
+#     What comes in:  A positive integer m >= 2, and an integer x.
+#     What goes out:
+#       -- Returns True if the number of doubly prime integers from m**2 to m**4,
+#          not counting m**4, is greater than or equal to x.
+#           eturns False otherwise.
+#     Side effects:   None.
+#     Examples:
+#       -- problem3b(6, 4) returns
+#            1/4  +  2/(5**2)  +  3/(6**3)  +  4/(7**4)  +  5/(8**5)  + 6/(9**6),
+#            which is approximately 0.3457187393495064.
+#       -- problem3b(3, 1) returns
+#            1/1  +  2/(2 ** 2)  +  3/(3 ** 3), which is approximately 0.6111111.
+#       -- problem3b(2, 35) returns
+#            1/35  +  2/(36**2), which is approximately 0.03011463844797178.
+#       -- problem3b(4, 0.1) returns
+#            1/(0.1)  +  2/((1.1)**2)  +  3/((2.1)**3)  +  4/(3.1)**4)),
+#            which is approximately 12.020144157845959.
+#      """
+#     # -------------------------------------------------------------------------
+#     # TODO: 4. Implement and test this function.
+#     #          Tests have been written for you (above).
+#     ###########################################################################
+#     ###########################################################################
+#     # IMPORTANT:
+#     #    **  For full credit you must appropriately
+#     #    **  use (call) the appropriate function(s) that are DEFINED ABOVE.
+#     ###########################################################################
 
 
 ###############################################################################
